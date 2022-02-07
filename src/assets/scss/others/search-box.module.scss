@@ -1,0 +1,38 @@
+.search_box {
+  position: relative;
+  margin-bottom: 20px;
+  flex-basis: 100%;
+
+  input {
+    width: 100%;
+    padding: 0.7rem 3rem 0.7rem 1rem;
+    border: 1px solid rgba(128, 128, 128, 0.575);
+    border-radius: 5px;
+    outline: none;
+    font-size: 1.2em;
+  }
+
+  button {
+    position: absolute;
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 30px;
+    height: auto;
+    top: 50%;
+    right: 0%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .search_box {
+    flex-basis: 30%;
+  }
+}
