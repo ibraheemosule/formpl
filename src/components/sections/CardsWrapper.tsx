@@ -1,22 +1,18 @@
-import React from "react";
+import { useEffect } from "react";
 import s from "../../assets/scss/sections/cards-wrapper.module.scss";
 import Card from "../others/Card";
+import { useAppSelector } from "../../store/hooks";
 
 const CardsWrapper: React.FC = () => {
+  const mutableData = useAppSelector(state => state.data.mutableData);
+  const loading = useAppSelector(state => state.data.loading);
+
   return (
     <div className={s.cards_wrapper}>
-      <h3>
-        <span>all tdemplates</span>
-        <span>2000 templates</span>
-      </h3>
-
       <div className={s.cards}>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {mutableData.map(item => (
+          <Card key={item.name} template={item} />
+        ))}
       </div>
     </div>
   );

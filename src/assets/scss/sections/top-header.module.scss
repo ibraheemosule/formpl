@@ -12,7 +12,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-top: 40px;
+    margin-top: 10px;
 
     .sort {
       flex-shrink: 0;
@@ -41,12 +41,31 @@
       color: #000;
     }
   }
+
+  h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    font-weight: 600;
+    text-transform: capitalize;
+    flex-basis: 100%;
+
+    span {
+      text-transform: capitalize;
+    }
+
+    span:last-of-type {
+      color: $grayCol;
+      font-size: medium;
+    }
+  }
 }
 
 @media (min-width: 768px) {
   .top_header {
     .filter_section {
-      flex-basis: 60%;
+      flex-basis: 70%;
       justify-content: space-between;
       margin: 0;
 
@@ -60,7 +79,7 @@
 @media (min-width: 992px) {
   .top_header {
     .filter_section {
-      flex-basis: 50%;
+      flex-basis: 60%;
     }
   }
 }

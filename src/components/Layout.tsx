@@ -1,6 +1,5 @@
-import React from "react";
 import TopHeader from "./sections/TopHeader";
-import CardsWrapper from "./sections/cardsWrapper";
+import CardsWrapper from "./sections/CardsWrapper";
 import s from "../assets/scss/layout/layout.module.scss";
 import Pagination from "./sections/Pagination";
 

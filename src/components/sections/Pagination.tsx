@@ -1,4 +1,3 @@
-import React from "react";
 import s from "../../assets/scss/sections/pagination.module.scss";
 
 const Pagination: React.FC = () => {

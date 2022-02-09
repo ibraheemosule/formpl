@@ -2,6 +2,9 @@
 
 .card {
   flex-basis: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border-radius: 2px;
   margin-bottom: 40px;
   padding: 1.5rem 1.5rem 0;
@@ -31,6 +34,12 @@
       text-transform: capitalize;
       text-align: left;
       font-size: 1.2rem;
+
+      a {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+      }
     }
   }
 }

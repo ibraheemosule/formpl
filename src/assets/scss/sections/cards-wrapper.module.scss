@@ -3,25 +3,6 @@
 .cards_wrapper {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 40px;
-
-  h3 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 600;
-    text-transform: capitalize;
-    flex-basis: 100%;
-
-    span {
-      text-transform: capitalize;
-    }
-
-    span:last-of-type {
-      color: $grayCol;
-      font-size: medium;
-    }
-  }
 
   .cards {
     display: flex;

@@ -30,7 +30,9 @@
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10px 0 20px;
+    padding: 0 5px 0 5px;
+    font-size: x-small;
+    text-transform: capitalize;
     img {
       width: 20px;
       height: auto;
@@ -72,6 +74,26 @@
   }
 }
 
+@media (min-width: 380px) {
+  .filter_box {
+    .wrapper {
+      flex-basis: 30%;
+      padding: 0 5px 0 5px;
+      font-size: 0.75em;
+    }
+  }
+}
+
+@media (min-width: 400px) {
+  .filter_box {
+    .wrapper {
+      flex-basis: 30%;
+      padding: 0 5px 0 5px;
+      font-size: small;
+    }
+  }
+}
+
 @media (min-width: 576px) {
   .filter_box {
     flex-basis: 30%;
@@ -91,7 +113,7 @@
 
 @media (min-width: 768px) {
   .filter_box {
-    flex-basis: 25%;
+    flex-basis: 30%;
   }
 }
 
