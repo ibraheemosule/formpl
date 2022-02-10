@@ -4,13 +4,19 @@
   margin: 40px 0;
   display: flex;
   justify-content: space-between;
-  font-size: 1.2rem;
+  font-size: 1rem;
 
   button {
     border: none;
     outline: none;
     background: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+
+    &:hover {
+      color: rgba(128, 128, 128, 0.733);
+    }
   }
 
   span {

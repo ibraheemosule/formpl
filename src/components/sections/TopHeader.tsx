@@ -16,15 +16,8 @@ const TopHeader: React.FC = () => {
 
   useEffect(() => {
     dispatch(filterByCategory(filter));
+    console.log(fetchedData);
   }, [filter]);
-
-  (() => {
-    const data = [...fetchedData];
-    const val = data
-      .map(val => dayjs(val.created).format("YY, MM, DD, HH, MM, SSS"))
-      .sort((a, b) => (b < a ? 1 : -1));
-    console.log(val);
-  })();
 
   return (
     <div className={s.top_header}>

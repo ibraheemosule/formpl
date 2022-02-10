@@ -36,6 +36,7 @@
     img {
       width: 20px;
       height: auto;
+      transition: all 0.2s ease-in;
     }
   }
 
@@ -44,7 +45,7 @@
     display: none;
     list-style-type: none;
     border-radius: 5px;
-    border: 2px solid $grayCol;
+    border: 1px solid $grayCol;
     background: white;
     top: 120%;
     left: 0;
@@ -54,23 +55,33 @@
     li {
       background: transparent;
       width: 100%;
-      font-size: 1em;
+      font-size: small;
       outline: none;
       border: 0;
-      border-bottom: 2px solid $grayCol;
+      border-bottom: 1px solid $grayCol;
       padding: 10px;
       cursor: pointer;
+      transition: all 0.2s ease-out;
+
+      &:hover {
+        background-color: rgba(211, 209, 209, 0.575);
+      }
     }
 
     li:last-of-type {
       border: 0;
     }
   }
-}
-
-.filter_box:focus {
-  .dropdown {
-    display: block;
+  &:focus {
+    .wrapper {
+      img {
+        transform: rotate(180deg);
+        transform-origin: 50%;
+      }
+    }
+    .dropdown {
+      display: block;
+    }
   }
 }
 

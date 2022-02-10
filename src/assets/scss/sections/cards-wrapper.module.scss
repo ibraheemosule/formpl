@@ -11,4 +11,19 @@
     flex-basis: 100%;
     margin: 40px 0;
   }
+
+  .loader {
+    min-height: 500px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 200px;
+      height: 200px;
+      @media (min-width: 576px) {
+        // left: 40%;
+      }
+    }
+  }
 }

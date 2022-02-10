@@ -1,5 +1,3 @@
-import React from "react";
-
 export interface IFilterBoxProps {
   title: string;
   sortItems: string[];
@@ -7,7 +5,7 @@ export interface IFilterBoxProps {
   setFilter?: React.Dispatch<React.SetStateAction<string>>;
 }
 
-interface Data {
+export interface IData {
   category: string[];
   created: string;
   description: string;
@@ -15,15 +13,25 @@ interface Data {
   name: string;
 }
 
-interface State {
-  initialData: Data[];
-  data: Data[];
+export interface IState {
+  fetchedData: IData[];
+  data: IData[];
+  mutableData: IData[];
+  loading: boolean;
+  paginated: IData[];
+  error: string;
 }
 
 export interface ICardProps {
-  template: Data;
+  template: IData;
 }
 
 export interface ISearchBoxProps {
   filter: string;
+}
+
+export interface Paginate {
+  arr: any[];
+  pageSize: number;
+  pageNumber: number;
 }

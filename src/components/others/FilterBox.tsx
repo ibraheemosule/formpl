@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import s from "../../assets/scss/others/filter-box.module.scss";
 import arrowDownIcon from "../../assets/img/chevron-down-outline.svg";
 import { IFilterBoxProps } from "../../ts-types";
@@ -12,9 +12,10 @@ import {
 
 const FilterBox: React.FC<IFilterBoxProps> = props => {
   const { title, sortItems, filter, setFilter } = props;
-  const data = useAppSelector(state => state.data.data);
   const dispatch = useAppDispatch();
   const [sort, setSort] = useState<String>("");
+  const [dropdownToggle, setDropdownToggle] = useState<boolean>(false);
+  const dropdown = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     if (title === "order")
@@ -59,8 +60,13 @@ const FilterBox: React.FC<IFilterBoxProps> = props => {
 
   useEffect(() => (title !== "category" ? setSort("") : undefined), [filter]);
 
+  const sortValue = (e: any) => {
+    setSort(e.target.outerText);
+    dropdown.current?.blur();
+  };
+
   return (
-    <button className={s.filter_box}>
+    <button className={s.filter_box} ref={dropdown}>
       <span className={s.float}>{title}</span>
       <div className={s.wrapper}>
         {title === "category" && <span>{sort || sortItems[0]}</span>}
@@ -71,7 +77,7 @@ const FilterBox: React.FC<IFilterBoxProps> = props => {
 
       <ul className={s.dropdown}>
         {sortItems.map((item, i) => (
-          <li key={i} onClick={(e: any) => setSort(e.target.outerText)}>
+          <li key={i} onClick={(e: any) => sortValue(e)}>
             {item}
           </li>
         ))}
