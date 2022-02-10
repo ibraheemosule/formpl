@@ -18,9 +18,10 @@
 
   &__body {
     margin: 40px 0;
+
     &::first-letter {
+      text-transform: capitalize;
     }
-    text-transform: capitalize;
   }
 
   &__footer {
