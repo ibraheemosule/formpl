@@ -25,12 +25,10 @@ const Pagination: React.FC = () => {
 
   const increment = () => {
     if (number < numOfPages) setNumber(number => number + 1);
-    console.log(number);
   };
 
   const decrement = () => {
     if (number > 1) setNumber(number => number - 1);
-    console.log(number);
   };
 
   useEffect(() => {
@@ -40,7 +38,6 @@ const Pagination: React.FC = () => {
       pageNumber: number,
     });
     dispatch(paginateData([...pag]));
-    console.log(paginatedData);
   }, [data, number]);
 
   useEffect(() => {

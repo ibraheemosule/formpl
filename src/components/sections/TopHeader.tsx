@@ -16,7 +16,6 @@ const TopHeader: React.FC = () => {
 
   useEffect(() => {
     dispatch(filterByCategory(filter));
-    console.log(fetchedData);
   }, [filter]);
 
   return (
