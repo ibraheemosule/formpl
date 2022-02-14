@@ -1,7 +1,7 @@
 @import "../globals";
 
 .pagination {
-  margin: 40px 0;
+  margin: 40px 0 100px;
   display: flex;
   justify-content: space-between;
   font-size: 1rem;
@@ -16,6 +16,11 @@
 
     &:hover {
       color: rgba(128, 128, 128, 0.733);
+    }
+
+    &:disabled {
+      color: rgba(128, 128, 128, 0.253);
+      cursor: not-allowed;
     }
   }
 

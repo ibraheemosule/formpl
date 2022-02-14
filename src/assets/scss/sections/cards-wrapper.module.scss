@@ -16,6 +16,7 @@
     min-height: 500px;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     img {
@@ -23,6 +24,20 @@
       height: 200px;
       @media (min-width: 576px) {
         // left: 40%;
+      }
+    }
+    button {
+      padding: 0.6em 1em;
+      margin: 20px 0;
+      border: 1px solid gray;
+      border-radius: 5px;
+      outline: none;
+      cursor: pointer;
+      font-weight: bolder;
+      font-size: 1.2em;
+
+      &:hover {
+        background-color: rgba(128, 128, 128, 0.212);
       }
     }
   }

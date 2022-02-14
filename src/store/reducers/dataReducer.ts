@@ -86,7 +86,7 @@ const dataSlice = createSlice({
       }),
       builder.addCase(templates.rejected, state => {
         state.loading = false;
-        state.error = "Network Error";
+        state.error = "Unable To Fetch Templates";
       });
   },
 });

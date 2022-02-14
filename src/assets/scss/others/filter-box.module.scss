@@ -6,23 +6,26 @@
   border: 1px solid rgba(128, 128, 128, 0.575);
   border-radius: 5px;
   padding: 0.7em 0;
-  outline: none;
   font-size: 1em;
-  background: transparent;
   margin: 0 0 20px;
-  cursor: pointer;
 
   .float {
-    position: absolute;
-    display: inline-block;
-    z-index: 1;
-    background: white;
     color: $grayCol;
     padding: 0 5px;
-    top: 0%;
-    left: 10px;
-    transform: translate(0, -50%);
+    margin-left: 10px;
     font-size: small;
+  }
+
+  button {
+    margin: 0;
+    padding: 0;
+    display: block;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
   }
 
   .wrapper {
@@ -72,7 +75,7 @@
       border: 0;
     }
   }
-  &:focus {
+  button:focus {
     .wrapper {
       img {
         transform: rotate(180deg);

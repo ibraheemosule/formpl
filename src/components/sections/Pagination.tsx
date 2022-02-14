@@ -46,15 +46,22 @@ const Pagination: React.FC = () => {
 
   return (
     <div className={s.pagination}>
-      <button disabled={number > 1 ? false : true} onClick={decrement}>
-        Previous
-      </button>
-      <div>
-        <span>{number}</span> of {numOfPages}
-      </div>
-      <button disabled={number < numOfPages ? false : true} onClick={increment}>
-        Next
-      </button>
+      {data.length > 0 && (
+        <>
+          <button disabled={number > 1 ? false : true} onClick={decrement}>
+            Previous
+          </button>
+          <div>
+            <span>{number}</span> of {numOfPages}
+          </div>
+          <button
+            disabled={number < numOfPages ? false : true}
+            onClick={increment}
+          >
+            Next
+          </button>
+        </>
+      )}
     </div>
   );
 };

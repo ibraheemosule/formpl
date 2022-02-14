@@ -3,12 +3,13 @@ import FilterBox from "../others/FilterBox";
 import s from "../../assets/scss/sections/top-header.module.scss";
 import infoIcon from "../../assets/img/info-icon.svg";
 import { useEffect, useState } from "react";
-import * as dayjs from "dayjs";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { filterByCategory } from "../../store/reducers/dataReducer";
 
 const TopHeader: React.FC = () => {
   const [filter, setFilter] = useState("");
+  const [sortDate, setSortDate] = useState("default");
+  const [sortAlphabet, setSortAlphabet] = useState("default");
   const dispatch = useAppDispatch();
   const fetchedData = useAppSelector(state => state.data.mutableData);
   const category = ["All", "Education", "E-commerce", "Health"];
@@ -17,6 +18,14 @@ const TopHeader: React.FC = () => {
   useEffect(() => {
     dispatch(filterByCategory(filter));
   }, [filter]);
+
+  useEffect(() => {
+    sortDate && setSortAlphabet("");
+  }, [sortDate]);
+
+  useEffect(() => {
+    sortAlphabet && setSortDate("");
+  }, [sortAlphabet]);
 
   return (
     <div className={s.top_header}>
@@ -27,10 +36,23 @@ const TopHeader: React.FC = () => {
           title={"category"}
           sortItems={category}
           filter={filter}
-          setFilter={setFilter}
+          sort={filter}
+          setSort={setFilter}
         />
-        <FilterBox title={"order"} sortItems={order} filter={filter} />
-        <FilterBox title={"date"} sortItems={order} filter={filter} />
+        <FilterBox
+          title={"order"}
+          sortItems={order}
+          filter={filter}
+          sort={sortAlphabet}
+          setSort={setSortAlphabet}
+        />
+        <FilterBox
+          title={"date"}
+          sortItems={order}
+          filter={filter}
+          sort={sortDate}
+          setSort={setSortDate}
+        />
       </div>
 
       <div className={s.top_header__info}>

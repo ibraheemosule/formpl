@@ -1,8 +1,12 @@
+import React, { SetStateAction } from "react";
+
 export interface IFilterBoxProps {
   title: string;
   sortItems: string[];
   filter: string;
-  setFilter?: React.Dispatch<React.SetStateAction<string>>;
+  setFilter?: React.Dispatch<SetStateAction<string>>;
+  sort?: string;
+  setSort?: React.Dispatch<SetStateAction<string>>;
 }
 
 export interface IData {

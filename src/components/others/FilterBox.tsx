@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import s from "../../assets/scss/others/filter-box.module.scss";
 import arrowDownIcon from "../../assets/img/chevron-down-outline.svg";
 import { IFilterBoxProps } from "../../ts-types";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { useAppDispatch } from "../../store/hooks";
 import {
   sortDateDown,
   sortNameDown,
@@ -11,10 +11,8 @@ import {
 } from "../../store/reducers/dataReducer";
 
 const FilterBox: React.FC<IFilterBoxProps> = props => {
-  const { title, sortItems, filter, setFilter } = props;
+  const { title, sortItems, filter, setFilter, sort, setSort } = props;
   const dispatch = useAppDispatch();
-  const [sort, setSort] = useState<String>("");
-  const [dropdownToggle, setDropdownToggle] = useState<boolean>(false);
   const dropdown = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
@@ -58,31 +56,36 @@ const FilterBox: React.FC<IFilterBoxProps> = props => {
       }
   }, [sort]);
 
-  useEffect(() => (title !== "category" ? setSort("") : undefined), [filter]);
+  useEffect(
+    () => (title !== "category" ? setSort && setSort("") : undefined),
+    [filter]
+  );
 
   const sortValue = (e: any) => {
-    setSort(e.target.outerText);
+    setSort && setSort(e.target.outerText);
     dropdown.current?.blur();
   };
 
   return (
-    <button className={s.filter_box} ref={dropdown}>
-      <span className={s.float}>{title}</span>
-      <div className={s.wrapper}>
-        {title === "category" && <span>{sort || sortItems[0]}</span>}
-        {title === "order" && <span>{sort || "default"}</span>}
-        {title === "date" && <span>{sort || "default"}</span>}
-        <img src={arrowDownIcon} alt="search icon" />
-      </div>
+    <fieldset className={s.filter_box}>
+      <legend className={s.float}>{title}</legend>
+      <button ref={dropdown}>
+        <div className={s.wrapper}>
+          {title === "category" && <span>{sort || sortItems[0]}</span>}
+          {title === "order" && <span>{sort || "default"}</span>}
+          {title === "date" && <span>{sort || "default"}</span>}
+          <img src={arrowDownIcon} alt="search icon" />
+        </div>
 
-      <ul className={s.dropdown}>
-        {sortItems.map((item, i) => (
-          <li key={i} onClick={(e: any) => sortValue(e)}>
-            {item}
-          </li>
-        ))}
-      </ul>
-    </button>
+        <ul className={s.dropdown}>
+          {sortItems.map((item, i) => (
+            <li key={i} onClick={(e: any) => sortValue(e)}>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </button>
+    </fieldset>
   );
 };
 
