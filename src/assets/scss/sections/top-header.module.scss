@@ -4,6 +4,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: flex-end;
   margin-top: 50px;
   color: $grayCol;
 
@@ -65,7 +66,7 @@
 @media (min-width: 768px) {
   .top_header {
     .filter_section {
-      flex-basis: 70%;
+      flex-basis: 60%;
       justify-content: space-between;
       margin: 0;
 

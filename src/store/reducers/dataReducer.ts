@@ -78,6 +78,7 @@ const dataSlice = createSlice({
   extraReducers: builder => {
     builder.addCase(templates.pending, (state, action) => {
       state.loading = true;
+      state.error = "";
     }),
       builder.addCase(templates.fulfilled, (state, { payload }) => {
         state.loading = false;
