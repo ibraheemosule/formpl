@@ -75,7 +75,7 @@
       border: 0;
     }
   }
-  button:focus {
+  .dropdown_active {
     .wrapper {
       img {
         transform: rotate(180deg);
